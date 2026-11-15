@@ -1,0 +1,141 @@
+/* Outpost Zero - upgrade styles v2 (load AFTER style.css) */
+
+/* ===== Clear, kid-friendly theme: bigger text, calmer panels ===== */
+:root { --text-muted: #c9d9ec; }
+body { font-size: 16px; }
+.glass { background: linear-gradient(145deg, rgba(13,33,64,.97), rgba(7,21,44,.97)); }
+.panel { padding: 24px; }
+.panel-head h2 { font-size: 26px; letter-spacing: .01em; }
+.kicker { font-size: 12px; color: #8fe8ff; }
+.panel-desc { font-size: 15px; color: #d6e6f8; margin-bottom: 18px; }
+.vitals { border-top: 5px solid #5ed6ff; }
+.sun-watch { border-top: 5px solid #ff9a3c; }
+.power-board { border-top: 5px solid #ffd166; }
+.log-panel { border-top: 5px solid #69e7c4; }
+.instructions, .gauge { display: none; }
+.meter-head { font-size: 17px; }
+.meter-head strong { font-size: 26px; }
+.meter-icon { width: 38px; height: 38px; font-size: 22px; }
+.bar { height: 15px; }
+.meter-desc, .forecast-tip, .science-card p, .science-card li { font-size: 14px; }
+.note, .log li, .mission-objective { font-size: 14px; }
+.flare-risk { font-size: 21px; } .flare-class { font-size: 32px; }
+.forecast-value { font-size: 24px; } .forecast-kicker { font-size: 11px; }
+.badge, .pill { font-size: 12px; }
+.sys-body strong { font-size: 17px; } .sys-body small { font-size: 13px; }
+.cells i { height: 10px; }
+.step { width: 48px; height: 48px; font-size: 30px; }
+.stepper output { font-size: 30px; min-width: 26px; }
+.power-count strong { font-size: 30px; } .power-count span { font-size: 10px; }
+.tool-btn { font-size: 13px; padding: 10px 14px; }
+.brand h1 { font-size: 21px; } .brand-tag { font-size: 13px; }
+.welcome h2 { font-size: clamp(26px, 3.4vw, 36px); } .welcome p { font-size: 15px; }
+.bubble p { font-size: 15px; } .tip-btn { font-size: 12px; }
+.dialog > p, .lesson-box, .debrief-row { font-size: 15px; }
+.btn-choice { font-size: 15px; }
+.start-card .intro-box p, .subtitle, .site-note { font-size: 13px; }
+.log { max-height: 220px; }
+.hud { padding-bottom: 230px; }
+
+/* ===== Launch button: very different from the Power Board ===== */
+.launch-pad { margin-top: 24px; padding: 16px; text-align: center; border: 2px dashed #ff9a3c; border-radius: 20px;
+    background: repeating-linear-gradient(45deg, rgba(255,154,60,.10) 0 12px, transparent 12px 24px); }
+.launch-pad small { display: block; margin-bottom: 10px; color: #ffb87a; font-size: 12px; font-weight: 900; letter-spacing: .2em; }
+.btn-launch { width: 100%; padding: 18px; border: 0; border-radius: 999px; font-family: var(--font-head); font-size: 24px; font-weight: 800;
+    color: #3a0d00; background: linear-gradient(180deg, #ffd166, #ff7a3c 70%, #ef4a2a);
+    box-shadow: 0 6px 0 #a8321a, 0 10px 28px rgba(255,100,40,.45); animation: launchPulse 1.8s ease-in-out infinite; }
+.btn-launch:active { box-shadow: 0 2px 0 #a8321a; transform: translateY(4px); }
+@keyframes launchPulse { 50% { box-shadow: 0 6px 0 #a8321a, 0 10px 40px rgba(255,140,60,.75); } }
+
+/* ===== Settings ===== */
+#setFab { left: 12px; bottom: 12px; }
+.set-row { display: grid; gap: 8px; margin: 22px 0; font-size: 16px; font-weight: 900; }
+.set-row span { display: flex; justify-content: space-between; }
+.set-row b { color: var(--gold); }
+.set-row input[type=range] { width: 100%; height: 30px; accent-color: #5ed6ff; }
+.set-chk { display: flex; align-items: center; gap: 12px; margin: 16px 0; font-size: 17px; font-weight: 900; }
+.set-chk input { width: 24px; height: 24px; accent-color: #69e7c4; }
+.tools { flex-wrap: wrap; }
+@media (max-width: 720px) { .tools { grid-template-columns: repeat(3, 1fr); } }
+
+/* ===== Learning card ===== */
+.welcome { flex-wrap: wrap; }
+.learn-card { flex-basis: 100%; padding: 16px 18px; border: 1px solid rgba(255,209,102,.45); border-radius: 18px; background: rgba(255,209,102,.09); }
+.learn-card h3 { margin: 4px 0; color: var(--gold); font-size: 22px; }
+.learn-card p:not(.kicker) { color: #eef5ff; font-size: 15px; line-height: 1.55; }
+.learn-card small { display: block; margin: 8px 0 10px; color: var(--text-muted); font-size: 12px; }
+
+/* ===== Robot: blink, lips, arms that pivot at the shoulder ===== */
+.robo-avatar { width: 130px; height: 150px; }
+.robo-avatar svg { overflow: visible; transform-origin: center bottom; }
+.robo-avatar .eyes, .robo-avatar .mopen { transform-box: fill-box; transform-origin: center; }
+.robo-avatar .eyes { animation: blink 4.5s infinite; }
+.robo-avatar .mopen { opacity: 0; }
+.robo-avatar.talking .smile { opacity: 0; }
+.robo-avatar.talking .mopen { opacity: 1; animation: lips .26s ease-in-out infinite alternate; }
+.robo-avatar .r-ant { transform-box: fill-box; transform-origin: center bottom; animation: antWag 2.4s ease-in-out infinite; }
+.ra { transform-box: view-box; }
+.ra-l { transform-origin: 44px 122px; animation: swayL 3s ease-in-out infinite alternate; }
+.ra-r { transform-origin: 106px 122px; animation: swayR 3.4s ease-in-out infinite alternate; }
+.robo-avatar.talking .ra-l { animation: upL .5s ease-in-out infinite alternate; }
+.robo-avatar.talking .ra-r { animation: swayR .7s ease-in-out infinite alternate; }
+.robo-avatar.pointing .ra-r { animation: upR .5s ease-in-out infinite alternate; }
+.robo-avatar svg.wave .ra-l { animation: upL .35s ease-in-out infinite alternate; }
+.robo-avatar svg.hop .ra-l, .robo-avatar svg.dance .ra-l { animation: upL .3s ease-in-out infinite alternate; }
+.robo-avatar svg.hop .ra-r, .robo-avatar svg.dance .ra-r { animation: upR .3s ease-in-out infinite alternate-reverse; }
+.robo-avatar svg.sad .ra-l { animation: none; transform: rotate(-45deg); }
+.robo-avatar svg.sad .ra-r { animation: none; transform: rotate(45deg); }
+.robo-avatar svg.walk { animation: roam 2.6s ease-in-out; }
+.robo-avatar svg.hop { animation: cheer 1.2s ease-out; }
+.robo-avatar svg.spin { animation: spinY 1.8s ease-in-out; }
+.robo-avatar svg.dance { animation: dance 2.4s ease-in-out; }
+.robo-avatar svg.tilt { animation: tilt 2.4s ease-in-out; }
+.robo-avatar svg.sad { animation: sadShake .9s ease-in-out; }
+@keyframes blink { 0%, 94%, 100% { transform: scaleY(1); } 97% { transform: scaleY(.1); } }
+@keyframes lips { from { transform: scaleY(.25); } to { transform: scaleY(1.1); } }
+@keyframes antWag { 0%, 100% { transform: rotate(-7deg); } 50% { transform: rotate(7deg); } }
+@keyframes swayL { from { transform: rotate(-10deg); } to { transform: rotate(8deg); } }
+@keyframes swayR { from { transform: rotate(10deg); } to { transform: rotate(-8deg); } }
+@keyframes upL { from { transform: rotate(15deg); } to { transform: rotate(62deg); } }
+@keyframes upR { from { transform: rotate(-15deg); } to { transform: rotate(-62deg); } }
+@keyframes roam { 0%, 100% { transform: translateX(0); } 25% { transform: translateX(-26px) rotate(-6deg); } 50% { transform: translateX(-26px) rotate(5deg); } 75% { transform: translateX(-8px) rotate(-3deg); } }
+@keyframes cheer { 0% { transform: translateY(0); } 25% { transform: translateY(-36px) rotate(-10deg); } 50% { transform: translateY(0); } 70% { transform: translateY(-24px) rotate(10deg); } 100% { transform: translateY(0); } }
+@keyframes spinY { from { transform: perspective(500px) rotateY(0); } to { transform: perspective(500px) rotateY(360deg); } }
+@keyframes dance { 0%, 50%, 100% { transform: rotate(-6deg) translateY(0); } 25%, 75% { transform: rotate(6deg) translateY(-12px); } }
+@keyframes tilt { 0%, 100% { transform: rotate(0); } 30%, 70% { transform: rotate(-9deg); } }
+@keyframes sadShake { 0%, 100% { transform: translateX(0) scaleY(1); } 20% { transform: translateX(-7px) scaleY(.94); } 40% { transform: translateX(7px) scaleY(.94); } 60% { transform: translateX(-5px) scaleY(.96); } 80% { transform: translateX(4px) scaleY(.97); } }
+
+/* ===== Gain / loss effects ===== */
+.meter { position: relative; }
+.meter.gain { animation: gainGlow 1.2s ease-out; }
+.meter.loss { animation: lossGlow 1.2s ease-out; }
+@keyframes gainGlow { 0%, 60% { box-shadow: inset 0 0 0 2px #69e7c4, 0 0 24px rgba(105,231,196,.55); } 100% { box-shadow: none; } }
+@keyframes lossGlow { 0%, 60% { box-shadow: inset 0 0 0 2px #ff8797, 0 0 24px rgba(255,135,151,.55); } 100% { box-shadow: none; } }
+.fx-float { position: absolute; right: 8px; top: 0; font-family: var(--font-head); font-size: 22px; font-weight: 800; pointer-events: none; animation: floatFx 1.4s ease-out forwards; }
+.fx-float.up { color: #69e7c4; } .fx-float.down { color: #ff8797; }
+@keyframes floatFx { from { opacity: 1; transform: translateY(0) scale(1.3); } to { opacity: 0; transform: translateY(-36px) scale(1); } }
+.fx-flash { position: fixed; inset: 0; z-index: 95; pointer-events: none; animation: flashFx .85s ease-out forwards; }
+.fx-flash.good { box-shadow: inset 0 0 120px 20px rgba(105,231,196,.55); }
+.fx-flash.bad { box-shadow: inset 0 0 120px 20px rgba(255,80,100,.6); }
+@keyframes flashFx { from { opacity: 1; } to { opacity: 0; } }
+
+/* ===== Living space background ===== */
+.bgx { position: absolute; pointer-events: none; will-change: transform; }
+.neb { inset: -20%; background: radial-gradient(ellipse at 25% 35%, rgba(120,90,255,.28), transparent 45%), radial-gradient(ellipse at 75% 55%, rgba(40,200,230,.22), transparent 45%); animation: nebDrift 40s ease-in-out infinite alternate; }
+.neb.b { background: radial-gradient(ellipse at 60% 20%, rgba(255,120,190,.20), transparent 40%); animation-duration: 55s; animation-direction: alternate-reverse; }
+@keyframes nebDrift { from { transform: translate(-3%, -2%) scale(1); } to { transform: translate(3%, 3%) scale(1.1); } }
+.spk { position: absolute; width: var(--s); height: var(--s); border-radius: 50%; background: #fff; box-shadow: 0 0 8px 2px rgba(190,230,255,.8); animation: spkTw 3s ease-in-out infinite alternate; }
+@keyframes spkTw { from { opacity: .15; transform: scale(.6); } to { opacity: 1; transform: scale(1.3); } }
+.sat { top: 22%; left: -8%; font-size: 30px; animation: satFly 50s linear infinite; }
+.rkt { top: 70%; left: -8%; font-size: 34px; animation: rktFly 38s linear 8s infinite; }
+.cmt { top: 8%; right: -8%; font-size: 28px; animation: cmtFly 26s linear 4s infinite; }
+@keyframes satFly { to { transform: translateX(115vw) rotate(360deg); } }
+@keyframes rktFly { 0% { transform: translate(0, 0) rotate(45deg); } 100% { transform: translate(115vw, -55vh) rotate(45deg); } }
+@keyframes cmtFly { 0% { transform: translate(0, 0); } 100% { transform: translate(-115vw, 60vh); } }
+.planet, .distant-planet { animation: float 10s ease-in-out infinite; will-change: transform; }
+.distant-planet { animation-duration: 13s; }
+.planet::after { content: ""; position: absolute; left: -35%; right: -35%; top: 42%; height: 18%; border: 5px solid rgba(255,225,170,.5); border-radius: 50%; transform: rotate(-18deg); }
+
+@media (prefers-reduced-motion: reduce) {
+    .robo-avatar *, .btn-launch, .planet, .distant-planet, .bgx, .spk { animation: none !important; }
+}

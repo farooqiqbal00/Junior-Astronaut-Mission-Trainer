@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en" data-site="moon" data-lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#07152d">
+    <meta name="description" content="Outpost Zero — NASA Space Apps junior astronaut mission trainer. Balance power, radiation, food and oxygen to survive 7 days on the Moon or Mars. Real NASA DONKI data.">
+    <meta property="og:title" content="Outpost Zero — Junior Astronaut Mission Trainer">
+    <meta property="og:description" content="Balance life support, radiation shielding, and food on a Moon or Mars outpost. Powered by real NASA space weather data.">
+    <meta property="og:type" content="website">
+    <title>Outpost Zero | Junior Astronaut Mission Trainer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:wght@500;600;700;800;900&family=Noto+Nastaliq+Urdu:wght@400;600;700&family=Noto+Naskh+Arabic:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" type="image/svg+xml" href="icons/logo.svg">
+    <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
+    <link rel="apple-touch-icon" href="icons/icon-192.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="upgrade.css">
+    <link rel="stylesheet" href="upgrade2.css">
+    <link rel="stylesheet" href="polish.css">
+</head>
+<body class="is-start">
+
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <defs>
+        <linearGradient id="ozBg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#62d7ff"/><stop offset="1" stop-color="#5a6df0"/></linearGradient>
+        <linearGradient id="ozBody" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#c9e4ff"/></linearGradient>
+        <linearGradient id="ozFl" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff2b0"/><stop offset=".5" stop-color="#ffb43c"/><stop offset="1" stop-color="#ff5a3c"/></linearGradient>
+    </defs>
+    <!-- OUTPOST ZERO logo: rocket circling an orbit ring -->
+    <symbol id="ozLogo" viewBox="0 0 64 64">
+        <rect width="64" height="64" rx="18" fill="url(#ozBg)"/>
+        <circle cx="12" cy="14" r="1.3" fill="#fff" opacity=".9"/><circle cx="52" cy="10" r="1" fill="#fff" opacity=".8"/><circle cx="55" cy="46" r="1.2" fill="#fff" opacity=".7"/><circle cx="9" cy="50" r="1" fill="#fff" opacity=".7"/>
+        <g transform="rotate(-28 32 32)"><ellipse cx="32" cy="34" rx="27" ry="8.5" fill="none" stroke="#fff" stroke-opacity=".55" stroke-width="2.4"/></g>
+        <g transform="translate(32 32) scale(.88) translate(-32 -32) rotate(42 32 32)">
+            <path d="M32 46 Q23 62 32 70 Q41 62 32 46Z" fill="url(#ozFl)"/>
+            <path d="M32 46 Q28.5 55 32 61 Q35.5 55 32 46Z" fill="#fff6c8"/>
+            <path d="M23.5 36 L13 50 Q20 50 24 46Z" fill="#ff5a3c"/><path d="M40.5 36 L51 50 Q44 50 40 46Z" fill="#ff5a3c"/>
+            <path d="M32 3 C41.5 11 43.5 26 41 46 L23 46 C20.5 26 22.5 11 32 3Z" fill="url(#ozBody)"/>
+            <path d="M32 3 C35.5 6 38.2 10 39.6 15 L24.4 15 C25.8 10 28.5 6 32 3Z" fill="#ff5a3c"/>
+            <rect x="26" y="45" width="12" height="4" rx="1.6" fill="#7e9cc4"/>
+            <circle cx="32" cy="27" r="6" fill="#17304f" stroke="#7ee8ff" stroke-width="2"/>
+            <ellipse cx="30.2" cy="25.2" rx="1.8" ry="1.3" fill="#9ff0ff"/>
+        </g>
+        <g transform="rotate(-28 32 32)"><path d="M5 34 A27 8.5 0 0 0 59 34" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/><circle cx="59" cy="34" r="3" fill="#ffd166"/></g>
+    </symbol>
+    <!-- rocket only (no badge), used for the flying background rocket -->
+    <symbol id="ozRocket" viewBox="8 0 48 70">
+        <path d="M32 46 Q23 62 32 70 Q41 62 32 46Z" fill="url(#ozFl)"/>
+        <path d="M23.5 36 L13 50 Q20 50 24 46Z" fill="#ff5a3c"/><path d="M40.5 36 L51 50 Q44 50 40 46Z" fill="#ff5a3c"/>
+        <path d="M32 3 C41.5 11 43.5 26 41 46 L23 46 C20.5 26 22.5 11 32 3Z" fill="url(#ozBody)"/>
+        <path d="M32 3 C35.5 6 38.2 10 39.6 15 L24.4 15 C25.8 10 28.5 6 32 3Z" fill="#ff5a3c"/>
+        <circle cx="32" cy="27" r="6" fill="#17304f" stroke="#7ee8ff" stroke-width="2"/>
+    </symbol>
+</svg>
+
+    <div class="scene" aria-hidden="true">
+        <div class="sky"></div>
+        <div class="stars"></div>
+        <div class="stars stars-far"></div>
+        <div class="shooting-star"></div>
+        <div class="planet"></div>
+        <div class="sun"><div class="sun-core"></div><div class="sun-ring"></div><div class="sun-ring outer"></div></div>
+        <div class="distant-planet"></div>
+        <div class="hills"><div class="hill back"></div><div class="hill front"></div></div>
+        <div class="bg-outpost"><div class="dome"></div><div class="body"></div><div class="light"></div></div>
+    </div>
+
+    <section class="screen start-screen" id="startScreen">
+        <article class="start-card glass">
+            <header class="start-header">
+                <div class="rocket-badge"><svg class="oz-logo" viewBox="0 0 64 64" role="img" aria-label="Outpost Zero logo"><use href="#ozLogo"/></svg></div>
+                <div>
+                    <p class="kicker">JUNIOR SPACE ACADEMY</p>
+                    <h1 class="logo">OUTPOST <span>ZERO</span></h1>
+                    <p class="subtitle" data-i18n="subtitle">Junior Astronaut Mission Trainer</p>
+                </div>
+            </header>
+            <div class="intro-box">
+                <h2 data-i18n="introTitle">Your space adventure starts here!</h2>
+                <p data-i18n="introBody">Your crew needs a safe home in space. Manage oxygen, grow food, protect astronauts from radiation and survive seven exciting days.</p>
+                <p data-i18n="introBody2">Don't worry! ROBO-7 will be your friendly space buddy and help you learn everything.</p>
+            </div>
+            <section class="voice-picker" aria-label="Choose ROBO-7 voice">
+                <div class="voice-picker-head">
+                    <span>🎙️ Choose ROBO-7 voice</span>
+                    <button type="button" id="previewVoiceBtn" class="voice-preview">▶ Preview</button>
+                </div>
+                <div class="voice-options">
+                    <button type="button" class="voice-choice is-active" data-voice="male" aria-pressed="true">👨 Male voice</button>
+                    <button type="button" class="voice-choice" data-voice="female" aria-pressed="false">👩 Female voice</button>
+                </div>
+                <p class="voice-note">Choose the voice before launching. Available voices depend on your device.</p>
+            </section>
+            <div class="form-group">
+                <label for="cadetName" data-i18n="nameLabel">🧑‍🚀 What should ROBO-7 call you?</label>
+                <input type="text" id="cadetName" maxlength="18" autocomplete="off" data-i18n-placeholder="namePlaceholder" placeholder="Enter your astronaut name">
+            </div>
+            <fieldset class="sites">
+                <legend data-i18n="siteLegend">🌍 Choose your space destination</legend>
+                <label class="site-card">
+                    <input type="radio" name="site" value="moon" checked>
+                    <span class="site-icon">🌕</span>
+                    <span class="site-name" data-i18n="moonName">The Moon</span>
+                    <span class="site-note" data-i18n="moonNote">A nearby space adventure!</span>
+                </label>
+                <label class="site-card">
+                    <input type="radio" name="site" value="mars">
+                    <span class="site-icon">🔴</span>
+                    <span class="site-name" data-i18n="marsName">Mars</span>
+                    <span class="site-note" data-i18n="marsNote">A challenging journey!</span>
+                </label>
+            </fieldset>
+            <button id="launchBtn" type="button" class="btn-primary pulse-glow" data-i18n="launchBtn">🚀 Prepare My Mission</button>
+            <p class="footnote" data-i18n="footnote">No space experience needed. Your training adventure begins with ROBO-7!</p>
+        </article>
+    </section>
+
+    <dialog id="tutorialChoice" class="glass dialog">
+        <div class="dialog-icon"><svg class="oz-logo" viewBox="0 0 64 64" role="img" aria-label="Outpost Zero logo"><use href="#ozLogo"/></svg></div>
+        <p class="kicker">SPACE ACADEMY</p>
+        <h2 data-i18n="tutWelcome">Welcome to Mission Training!</h2>
+        <p data-i18n="tutBody">Hi Commander! Before your mission begins, you can learn how the outpost works.</p>
+        <p data-i18n="tutBody2">ROBO-7 will explain the controls, space radiation, oxygen, food, power cells and your daily mission.</p>
+        <div class="choices">
+            <button type="button" id="startTutBtn" class="btn-choice highlight" data-i18n="tutStart">🎓 Start Interactive Tutorial</button>
+            <button type="button" id="skipTutBtn" class="btn-choice" data-i18n="tutSkip">🚀 Skip Tutorial &amp; Start Mission</button>
+        </div>
+        <p class="dialog-note" data-i18n="tutNote">You can always open the handbook during the game.</p>
+    </dialog>
+
+    <main class="hud" id="gameShell">
+        <header class="top-bar glass">
+            <div class="brand">
+                <div class="brand-mark"><svg class="oz-logo" viewBox="0 0 64 64" role="img" aria-label="Outpost Zero logo"><use href="#ozLogo"/></svg></div>
+                <div>
+                    <span class="brand-tag">OUTPOST ZERO</span>
+                    <h1 id="crewTitle">The Moon Outpost</h1>
+                    <p class="muted small" id="commanderLabel">Commander: Cadet</p>
+                </div>
+            </div>
+            <div class="progress">
+                <div class="progress-label">
+                    <span data-i18n="progressLabel">MISSION PROGRESS</span>
+                    <strong>DAY <span id="dayNum">1</span><span class="day-total">/ 7</span></strong>
+                </div>
+                <ol class="pips" id="pips">
+                    <li class="pip now"></li><li class="pip"></li><li class="pip"></li><li class="pip"></li>
+                    <li class="pip"></li><li class="pip"></li><li class="pip"></li>
+                </ol>
+            </div>
+            <nav class="tools">
+                <button class="tool-btn" id="helpBtn" type="button">📘 <span data-i18n="handbook">Handbook</span></button>
+                <button class="tool-btn" id="dataBtn" type="button">🛰️ <span data-i18n="nasaData">NASA Data</span></button>
+            </nav>
+        </header>
+
+        <section class="welcome">
+            <div>
+                <p class="kicker" data-i18n="todayKicker">YOUR MISSION TODAY</p>
+                <h2>Keep your crew safe, <span id="welcomeName">Commander</span>!</h2>
+                <p data-i18n="todayBody">Check the Sun Watch, manage your power and prepare your outpost for the day.</p>
+            </div>
+            <div class="stamp"><strong>7</strong><span data-i18n="stampText">DAYS TO<br>SURVIVE</span></div>
+        </section>
+
+        <section class="glass panel vitals" data-tut="vitals">
+            <div class="panel-head">
+                <div><p class="kicker">01 / <span data-i18n="crewKicker">CREW STATUS</span></p><h2 data-i18n="crewTitle">👩‍🚀 Crew Life Support</h2></div>
+                <span class="pill">⭐ <span data-i18n="scoreLabel">Score</span>: <strong id="scoreVal">0</strong></span>
+            </div>
+            <p class="panel-desc" data-i18n="crewDesc">Your astronauts need air, food and good health. Keep all three above zero!</p>
+            <div class="meter" data-meter="oxygen">
+                <div class="meter-head"><span><span class="meter-icon">💨</span> <span data-i18n="airLabel">Breathable Air</span></span><strong id="oxygenVal">100%</strong></div>
+                <div class="bar"><div id="oxygenBar" class="fill oxygen"></div></div>
+                <p class="meter-desc" data-i18n="airDesc">Oxygen is the gas astronauts breathe. Without enough, people cannot survive.</p>
+            </div>
+            <div class="meter" data-meter="food">
+                <div class="meter-head"><span><span class="meter-icon">🥗</span> <span data-i18n="foodLabel">Greenhouse Food</span></span><strong id="foodVal">100%</strong></div>
+                <div class="bar"><div id="foodBar" class="fill food"></div></div>
+                <p class="meter-desc" data-i18n="foodDesc">The greenhouse grows food for your astronauts. Plants need power to grow.</p>
+            </div>
+            <div class="meter" data-meter="health">
+                <div class="meter-head"><span><span class="meter-icon">❤️</span> <span data-i18n="healthLabel">Crew Health</span></span><strong id="healthVal">100%</strong></div>
+                <div class="bar"><div id="healthBar" class="fill health"></div></div>
+                <p class="meter-desc" data-i18n="healthDesc">Health shows how safe your astronauts are from dangerous space radiation.</p>
+            </div>
+            <div class="note"><span>💡</span><p><strong data-i18n="rememberLabel">Remember:</strong> <span data-i18n="rememberText">If any vital reaches 0%, your mission ends.</span></p></div>
+        </section>
+
+        <section class="glass panel sun-watch" data-tut="flare">
+            <div class="panel-head">
+                <div><p class="kicker">02 / <span data-i18n="spaceWeatherKicker">SPACE WEATHER</span></p><h2 data-i18n="sunWatchTitle">☀️ Sun Watch</h2></div>
+                <span class="badge" id="dataSource">Checking NASA...</span>
+            </div>
+            <p class="panel-desc" data-i18n="sunDesc">The Sun can release powerful bursts of energy. Watch out for solar flares!</p>
+            <div class="flare-display">
+                <div class="flare-box"><p class="flare-class" id="flareClass">—</p></div>
+                <div class="flare-info">
+                    <p class="flare-risk" id="flareRisk" data-i18n="scanning">Scanning the Sun...</p>
+                    <p class="muted small" id="flareTime">—</p>
+                </div>
+            </div>
+            <div class="forecast" id="forecast">
+                <span class="forecast-kicker" data-i18n="tomorrowLabel">🔭 TOMORROW'S FORECAST</span>
+                <p class="forecast-value" id="forecastValue">—</p>
+                <p class="forecast-tip" id="forecastTip"></p>
+            </div>
+            <div class="science-card">
+                <h3 data-i18n="radTitle">🔬 What is Radiation?</h3>
+                <p data-i18n="radBody">Radiation is energy that travels through space. Some radiation from the Sun can be harmful to astronauts.</p>
+                <p data-i18n="radBody2">A radiation shield helps protect your crew by reducing the amount of radiation that reaches them.</p>
+            </div>
+            <div class="flare-classes">
+                <div class="level level-c"><strong>C</strong><span data-i18n="small">SMALL</span></div>
+                <div class="level level-m"><strong>M</strong><span data-i18n="medium">MEDIUM</span></div>
+                <div class="level level-x"><strong>X</strong><span data-i18n="strong">STRONG</span></div>
+            </div>
+            <div class="gauge"><span class="seg"></span><span class="seg"></span><span class="seg"></span></div>
+        </section>
+
+        <!-- LIVE SIMULATION VISUALIZER -->
+        <section class="glass panel sim-panel" style="background: transparent; border: none; box-shadow: none; pointer-events: none; overflow: hidden; position: relative;">
+            <div id="sim-base" class="sim-base" style="--shield-opacity: 0.3; --shield-scale: 1;">
+                <!-- Shield Bubble -->
+                <div class="sim-shield"></div>
+                <!-- Base Dome -->
+                <div class="sim-dome">
+                    <div class="sim-window"></div>
+                    <div class="sim-window"></div>
+                </div>
+                <!-- Greenhouse Plants -->
+                <div id="sim-plants" class="sim-plants">
+                    <div class="plant"></div>
+                    <div class="plant"></div>
+                    <div class="plant"></div>
+                </div>
+                <!-- Air Particles -->
+                <div id="air-particles" class="air-particles">
+                    <span>💨</span><span>💨</span><span>💨</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="glass panel power-board" data-tut="console">
+            <div class="panel-head">
+                <div><p class="kicker">03 / <span data-i18n="powerKicker">POWER MANAGEMENT</span></p><h2 data-i18n="powerTitle">⚡ Reactor Power Board</h2></div>
+                <div class="power-count"><strong id="powerLeft">0</strong><span data-i18n="cellsLeft">CELLS LEFT</span></div>
+            </div>
+            <p class="panel-desc" data-i18n="powerDesc">Every day has one exact 6-cell solution. Match today's emergency plan to launch.</p>
+            <div class="mission-objective" id="missionObjective" role="status">
+                <strong>🎯 TODAY'S REQUIRED PLAN</strong>
+                <span id="objectiveText">Follow today's exact allocation. All 6 cells must be assigned correctly.</span>
+            </div>
+            <div class="instructions">
+                <span>➕</span><p data-i18n="instPlus">Press + to give a system one more power cell.</p>
+                <span>➖</span><p data-i18n="instMinus">Press − to take one power cell away.</p>
+            </div>
+            <div class="system life">
+                <div class="sys-icon">💨</div>
+                <div class="sys-body">
+                    <strong data-i18n="lifeTitle">Life Support</strong>
+                    <small data-i18n="lifeDesc">Makes breathable oxygen</small>
+                    <div class="cells" id="cells-life"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+                </div>
+                <div class="stepper">
+                    <button type="button" class="step" data-sys="life" data-step="-1">−</button>
+                    <output id="val-life">2</output>
+                    <button type="button" class="step" data-sys="life" data-step="1">+</button>
+                </div>
+            </div>
+            <div class="system shield">
+                <div class="sys-icon">🛡️</div>
+                <div class="sys-body">
+                    <strong data-i18n="shieldTitle">Radiation Shield</strong>
+                    <small data-i18n="shieldDesc">Protects astronauts from radiation</small>
+                    <div class="cells" id="cells-shield"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+                </div>
+                <div class="stepper">
+                    <button type="button" class="step" data-sys="shield" data-step="-1">−</button>
+                    <output id="val-shield">2</output>
+                    <button type="button" class="step" data-sys="shield" data-step="1">+</button>
+                </div>
+            </div>
+            <div class="system farm">
+                <div class="sys-icon">🌱</div>
+                <div class="sys-body">
+                    <strong data-i18n="farmTitle">Greenhouse</strong>
+                    <small data-i18n="farmDesc">Grows food for the crew</small>
+                    <div class="cells" id="cells-farm"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+                </div>
+                <div class="stepper">
+                    <button type="button" class="step" data-sys="farm" data-step="-1">−</button>
+                    <output id="val-farm">2</output>
+                    <button type="button" class="step" data-sys="farm" data-step="1">+</button>
+                </div>
+            </div>
+            <div class="note gold"><span>⚖️</span><p><strong data-i18n="carefulLabel">Think carefully!</strong> <span data-i18n="carefulText">More power for one system means less for others.</span></p></div>
+            <div class="launch-pad"><small>🛫 LAUNCH CONTROL</small><button id="startDayBtn" type="button" class="btn-launch" data-i18n="startDayBtn" data-tut="nextbtn">🚀 Start Day</button></div>
+            <div class="boost-card" id="boostCard"><span class="boost-ico">💪</span><div><strong>MISSION BOOST</strong><p id="boostText">You've got this, Commander! Every great mission starts with one brave step.</p></div></div>
+        </section>
+
+        <section class="glass panel log-panel" data-tut="log">
+            <div class="panel-head">
+                <div><p class="kicker">04 / <span data-i18n="logKicker">MISSION RECORD</span></p><h2 data-i18n="logTitle">📋 Captain's Log</h2></div>
+                <span class="live">● LIVE</span>
+            </div>
+            <p class="panel-desc" data-i18n="logDesc">Important mission updates and events appear here.</p>
+            <ol class="log" id="log"><li data-i18n="logStart">Mission systems are warming up. Welcome aboard, Commander!</li></ol>
+        </section>
+    </main>
+
+    <aside class="robo" id="robo" aria-label="ROBO-7 learning assistant">
+        <div class="bubble" id="bubble" aria-live="polite">
+            <header class="bubble-head">
+                <span class="bot-name"><span class="dot"></span>ROBO-7 <small>YOUR SPACE BUDDY</small></span>
+                <span class="bubble-btns"><button type="button" class="skip-btn" id="skipVoiceBtn" hidden>⏭ Skip</button><button type="button" class="tip-btn" id="tipBtn" data-i18n="tipBtn">💡 Smart Tip</button></span>
+            </header>
+            <p id="bubbleText">Hi Commander! I'm ROBO-7. I will help you understand space and complete your mission!</p>
+        </div>
+        <button type="button" class="robo-avatar" id="roboAvatar" aria-label="Ask ROBO-7 for help">
+            <svg viewBox="0 0 150 170" role="img" aria-label="Cute friendly robot">
+                <ellipse cx="75" cy="160" rx="42" ry="7" fill="#06152a" opacity=".3"/>
+                <line x1="75" y1="27" x2="75" y2="12" stroke="#c7e8ff" stroke-width="6" stroke-linecap="round"/>
+                <circle cx="75" cy="10" r="8" fill="#ffd166" class="antenna"/>
+                <rect x="17" y="57" width="18" height="34" rx="9" fill="#54c7f8"/>
+                <rect x="115" y="57" width="18" height="34" rx="9" fill="#54c7f8"/>
+                <rect x="29" y="30" width="92" height="77" rx="27" fill="#f7fbff" stroke="#a9d6f2" stroke-width="4"/>
+                <rect x="39" y="42" width="72" height="49" rx="18" fill="#17304f"/>
+                <g class="eyes"><ellipse cx="59" cy="64" rx="7" ry="9" fill="#73f3dc"/><ellipse cx="91" cy="64" rx="7" ry="9" fill="#73f3dc"/></g>
+                <path class="mouth" d="M65 78 Q75 86 85 78" fill="none" stroke="#73f3dc" stroke-width="3.5" stroke-linecap="round"/>
+                <rect x="43" y="111" width="64" height="43" rx="17" fill="#e9f5ff" stroke="#a9d6f2" stroke-width="4"/>
+                <circle cx="75" cy="132" r="10" fill="#49bdf2"/>
+                <path class="arm-l" d="M40 119 Q19 111 19 94" fill="none" stroke="#d7eaf8" stroke-width="12" stroke-linecap="round"/>
+                <path class="arm-r" d="M110 119 Q132 112 133 94" fill="none" stroke="#d7eaf8" stroke-width="12" stroke-linecap="round"/>
+                <rect x="48" y="151" width="20" height="8" rx="4" fill="#54c7f8"/>
+                <rect x="82" y="151" width="20" height="8" rx="4" fill="#54c7f8"/>
+            </svg>
+        </button>
+    </aside>
+
+
+    <div class="toasts" id="toasts" aria-live="polite"></div>
+
+    <dialog id="eventDialog" class="glass dialog">
+        <div class="event-badge">⚠️ <span data-i18n="eventBadge">OUTPOST CHALLENGE</span></div>
+        <div class="dialog-icon">🚨</div>
+        <h2 id="eventTitle">Mission Alert!</h2>
+        <p id="eventText">An unexpected problem has appeared in your outpost.</p>
+        <div class="bot-tip"><strong>🤖 ROBO-7:</strong> <span id="eventHint">Think carefully!</span></div>
+        <div class="choices">
+            <button type="button" id="choiceA" class="btn-choice">Option A</button>
+            <button type="button" id="choiceB" class="btn-choice">Option B</button>
+        </div>
+    </dialog>
+
+    <dialog id="debriefDialog" class="glass dialog">
+        <p class="kicker">MISSION DEBRIEF</p>
+        <h2 id="debriefTitle">Day 1 Complete!</h2>
+        <div class="debrief-body" id="debriefBody"></div>
+        <div class="lesson-box">
+            <span>🎓</span>
+            <div><strong data-i18n="learnedLabel">What you learned:</strong><p id="debriefLesson"></p></div>
+        </div>
+        <button type="button" class="btn-primary" id="debriefBtn" data-i18n="continueBtn">Continue to Next Day →</button>
+    </dialog>
+
+    <dialog id="dataDialog" class="glass dialog">
+        <div class="dialog-head">
+            <div><p class="kicker">SPACE WEATHER LAB</p><h2>🛰️ NASA Solar Data</h2></div>
+            <button class="tool-btn" type="button" data-close>✕</button>
+        </div>
+        <p data-i18n="dataBody">Sun Watch uses NASA's DONKI solar-flare information when the live service is available.</p>
+        <div class="science-card"><h3>What is NASA DONKI?</h3><p>DONKI is NASA's space-weather information system. It records events happening on the Sun and in space.</p></div>
+        <div class="science-card">
+            <h3>Solar Flare Classes</h3>
+            <ul>
+                <li><strong>C-Class:</strong> Weaker flares — minimal radiation risk.</li>
+                <li><strong>M-Class:</strong> Stronger flares — need 2+ shield cells.</li>
+                <li><strong>X-Class:</strong> Strongest class — need 3+ shield cells.</li>
+            </ul>
+        </div>
+        <p class="source">Data source: <a href="https://ccmc.gsfc.nasa.gov/tools/DONKI/" target="_blank" rel="noopener">NASA DONKI</a> · Health guidance: <a href="https://osdr.nasa.gov/" target="_blank" rel="noopener">NASA OSDR</a></p>
+    </dialog>
+
+    <dialog id="helpDialog" class="glass dialog">
+        <div class="dialog-head">
+            <div><p class="kicker">CADET FIELD GUIDE</p><h2>📘 Junior Astronaut Handbook</h2></div>
+            <button class="tool-btn" type="button" data-close>✕</button>
+        </div>
+        <div class="handbook">
+            <article><span>01</span><div><h3>Watch the Sun</h3><p>Check Sun Watch for solar flares. Strong flares can hurt your crew.</p></div></article>
+            <article><span>02</span><div><h3>Understand Vitals</h3><p>Air helps astronauts breathe. Food keeps them strong. Health shows radiation safety.</p></div></article>
+            <article><span>03</span><div><h3>Manage 6 Power Cells</h3><p>Use + and − to share power. You must assign all 6 cells.</p></div></article>
+            <article><span>04</span><div><h3>Protect Your Crew</h3><p>The radiation shield reduces harmful radiation reaching astronauts.</p></div></article>
+            <article><span>05</span><div><h3>Grow Food</h3><p>The greenhouse uses power to grow food for your astronauts.</p></div></article>
+            <article><span>06</span><div><h3>Complete 7 Days</h3><p>Each day brings a new challenge. Keep all vitals above zero.</p></div></article>
+        </div>
+    </dialog>
+
+    <section class="screen end-screen" id="endScreen" hidden>
+        <article class="start-card glass center">
+            <div class="end-logo"><svg class="oz-logo" viewBox="0 0 64 64" role="img" aria-label="Outpost Zero logo"><use href="#ozLogo"/></svg></div>
+            <div class="end-icon" id="endIcon">🏆🤖</div>
+            <p class="kicker">MISSION REPORT</p>
+            <h2 id="endTitle">Mission Complete!</h2>
+            <p id="endText">Your mission report is ready.</p>
+            <p class="motive-end" id="endMotive"></p>
+            <div class="patch-wrap" id="patchWrap" hidden>
+                <canvas id="patchCanvas" width="360" height="360" aria-label="Your mission patch"></canvas>
+                <p class="rank-text" id="rankText"></p>
+                <button id="patchBtn" type="button" class="tool-btn">⬇️ Save Mission Patch</button>
+            </div>
+            <canvas id="chart" class="chart" width="400" height="180" aria-label="Vitals trend chart"></canvas>
+            <dl class="stats" id="endStats">
+                <div><dt data-i18n="statScore">Final Score</dt><dd>0</dd></div>
+                <div><dt data-i18n="statHealth">Crew Health</dt><dd>100%</dd></div>
+                <div><dt data-i18n="statDays">Days Survived</dt><dd>0/7</dd></div>
+            </dl>
+            <ul class="badges" id="badges"></ul>
+            <div class="learn">
+                <h3 data-i18n="learnedTitle">🎓 What You Learned</h3>
+                <ul id="learnedList"></ul>
+            </div>
+            <div class="end-actions">
+                <button id="shareBtn" type="button" class="tool-btn" data-i18n="shareBtn">📋 Copy Score</button>
+                <button id="restartBtn" type="button" class="btn-primary" data-i18n="restartBtn">🔄 Play Again</button>
+            </div>
+        </article>
+    </section>
+
+    <footer class="credits">
+        <span>Real NASA data:</span>
+        <a href="https://ccmc.gsfc.nasa.gov/tools/DONKI/" target="_blank" rel="noopener">DONKI</a> flares ·
+        <a href="https://osdr.nasa.gov/" target="_blank" rel="noopener">OSDR</a> health ·
+        <a href="https://www.nasa.gov/artemis/" target="_blank" rel="noopener">Artemis</a> lunar
+        <span class="sep">|</span>
+        <span id="creditStatus">🛰️ Connecting…</span>
+    </footer>
+
+    <script src="js/data.js"></script>
+    <script src="js/urdu.js"></script>
+    <script src="js/music.js"></script>
+    <script src="js/core.js"></script>
+    <script src="js/game.js"></script>
+    <script src="js/cinematic.js"></script>
+    <script src="js/extras.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/upgrade.js"></script>
+    <script src="js/upgrade2.js"></script>
+    <script src="js/voice.js"></script>
+    <script src="js/polish.js"></script>
+    <script src="js/robo7.js"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => navigator.serviceWorker.register('sw.js').catch(() => {}));
+        }
+    </script>
+</body>
+</html>

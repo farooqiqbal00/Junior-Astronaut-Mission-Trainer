@@ -1,0 +1,18 @@
+{
+    "name": "Outpost Zero — Junior Astronaut Mission Trainer",
+    "short_name": "Outpost Zero",
+    "description": "Manage a Moon or Mars outpost. Balance power, radiation and survival. Real NASA space weather data.",
+    "id": "./index.html",
+    "start_url": "./index.html",
+    "scope": "./",
+    "display": "standalone",
+    "orientation": "any",
+    "background_color": "#061329",
+    "theme_color": "#07152d",
+    "categories": ["education", "games"],
+    "icons": [
+        { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+        { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+        { "src": "icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+    ]
+}
